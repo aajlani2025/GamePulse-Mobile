@@ -136,6 +136,14 @@ The app streams two types of sensor data via WebSocket:
 }
 ```
 
+## Current Testing Status
+
+The WebSocket streaming to n8n is currently commented out. This version is for testing the other features:
+- BLE scanning and device discovery
+- Sensor connection and data subscription
+- HR and IMU data reception
+- UI controls (START/STOP)
+
 ## License
 
 This project is proprietary. All rights reserved.
