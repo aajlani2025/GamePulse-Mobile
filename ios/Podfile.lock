@@ -1,0 +1,40 @@
+PODS:
+  - Flutter (1.0.0)
+  - mdsflutter (0.0.1):
+    - Flutter
+    - Movesense
+    - SwiftProtobuf
+  - Movesense (3.33.1)
+  - SwiftProtobuf (1.33.3)
+
+DEPENDENCIES:
+  - Flutter (from `Flutter`)
+  - mdsflutter (from `.symlinks/plugins/mdsflutter/ios`)
+  - Movesense (from `https://bitbucket.org/movesense/movesense-mobile-lib.git`)
+
+SPEC REPOS:
+  trunk:
+    - SwiftProtobuf
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+  mdsflutter:
+    :path: ".symlinks/plugins/mdsflutter/ios"
+  Movesense:
+    :git: https://bitbucket.org/movesense/movesense-mobile-lib.git
+
+CHECKOUT OPTIONS:
+  Movesense:
+    :commit: 4df9f7e709b5d6d606eb4f7b80bc4942e8540f07
+    :git: https://bitbucket.org/movesense/movesense-mobile-lib.git
+
+SPEC CHECKSUMS:
+  Flutter: cabc95a1d2626b1b06e7179b784ebcf0c0cde467
+  mdsflutter: bd3c0b3335d50947d1a192cf70f930e0fb04a766
+  Movesense: dc64047c1feb856b7f7ac6ea2c67685350d99dd5
+  SwiftProtobuf: e1b437c8e31a4c5577b643249a0bb62ed4f02153
+
+PODFILE CHECKSUM: 958c2c896ebc79f9e4f0acc545fcc7cc0acbc849
+
+COCOAPODS: 1.16.2
