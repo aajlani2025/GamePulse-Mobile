@@ -1,15 +1,30 @@
-import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import '../providers/gateway_provider.dart';
+// lib/screens/home_screen.dart
 
-class GatewayScreen extends StatelessWidget {
-  const GatewayScreen({super.key});
+import 'package:flutter/material.dart';
+import '../services/ble/movesense_scanner.dart';
+import '../services/ble/movesense_connect.dart';
+
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key});
+
+  void _start() {
+    MovesenseScanner.i.startScan(
+      onDeviceFound: (name, serial) {
+        MovesenseConnect.i.connect(serial);
+      },
+    );
+  }
+
+  void _stop() {
+    MovesenseScanner.i.stopScan();
+    MovesenseConnect.i.disconnectAll();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Movesense Gateway"),
+        title: const Text('Movesense Gateway'),
         backgroundColor: Colors.blue,
       ),
       body: Center(
@@ -17,36 +32,36 @@ class GatewayScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Text(
-              "IMU9/104 + HR → n8n",
+              'IMU9/104 + HR → n8n',
               style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 30),
             ElevatedButton(
-              onPressed: () => Provider.of<GatewayProvider>(context, listen: false).start(),
+              onPressed: _start,
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.green,
                 padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
               ),
               child: const Text(
-                "START GATEWAY",
+                'START GATEWAY',
                 style: TextStyle(fontSize: 24, color: Colors.white),
               ),
             ),
             const SizedBox(height: 20),
             ElevatedButton(
-              onPressed: () => Provider.of<GatewayProvider>(context, listen: false).stop(),
+              onPressed: _stop,
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.red,
                 padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
               ),
               child: const Text(
-                "STOP",
+                'STOP',
                 style: TextStyle(fontSize: 24, color: Colors.white),
               ),
             ),
             const SizedBox(height: 20),
             const Text(
-              "real time data to n8n",
+              'real time data to n8n',
               style: TextStyle(fontSize: 16, color: Colors.grey),
             ),
           ],
