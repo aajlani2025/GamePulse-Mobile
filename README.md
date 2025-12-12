@@ -12,10 +12,8 @@ GamePulse Mobile acts as a data aggregation bridge between Movesense fitness/hea
 - **Dual Data Streams**:
   - Heart Rate (HR) measurements with RR intervals
   - IMU9 inertial data at 104 Hz (accelerometer, gyroscope, magnetometer)
-- **Real-time Visualization**: Live charts displaying sensor data as it arrives
 - **Session Management**: Organize data collection with session IDs and events
 - **Device Scanning**: BLE discovery with automatic device identification
-- **Live Monitoring**: Real-time dashboard for all connected sensors
 - **Debug Tools**: Device-level debugging screen for troubleshooting
 
 ## Tech Stack
@@ -23,7 +21,6 @@ GamePulse Mobile acts as a data aggregation bridge between Movesense fitness/hea
 - **Framework**: Flutter (Dart)
 - **State Management**: Provider
 - **BLE Communication**: mdsflutter (Movesense native plugin)
-- **Data Visualization**: fl_chart
 - **Networking**: HTTP/WebSocket for data ingestion
 
 ## Project Structure
@@ -41,12 +38,10 @@ lib/
 │   └── session_event.dart       # Session event tracking
 ├── providers/
 │   ├── devices_provider.dart    # Device state management
-│   ├── live_stream_provider.dart # Real-time data streaming
 │   └── session_provider.dart    # Session state management
 ├── screens/
 │   ├── home_screen.dart         # Main navigation screen
 │   ├── device_scan_screen.dart  # BLE device discovery
-│   ├── live_monitor_screen.dart # Real-time data dashboard
 │   └── device_debug_screen.dart # Device debugging tools
 ├── services/
 │   ├── ble/
@@ -59,8 +54,7 @@ lib/
 │       └── timestamp_service.dart  # Timestamp synchronization
 └── widgets/
     ├── sensor_tile.dart         # Sensor display component
-    ├── status_banner.dart       # Connection status indicator
-    └── live_chart.dart          # Real-time data chart
+    └── status_banner.dart       # Connection status indicator
 ```
 
 ## Setup Instructions
@@ -116,9 +110,8 @@ flutter run
 
 1. **Device Scanning**: Navigate to scan screen to discover Movesense sensors
 2. **Connect Devices**: Tap on discovered devices to establish BLE connection
-3. **Live Monitoring**: View real-time HR and IMU data on the monitor screen
-4. **Session Management**: Start/stop data collection sessions
-5. **Debug**: Use debug screen for device-level troubleshooting
+3. **Session Management**: Start/stop data collection sessions
+4. **Debug**: Use debug screen for device-level troubleshooting
 
 ## Data Formats
 
